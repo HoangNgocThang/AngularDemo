@@ -5,13 +5,15 @@ import { AppComponent } from "./app.component";
 import { ItemComponent } from "./components/items/items.component";
 import { ProductAlertsComponent } from "./components/product-alerts/product-alerts.component";
 import { ItemDetailComponent } from "./components/item-detail/item-detail.component";
+import { CartComponent } from "./components/cart/cart.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
     ProductAlertsComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    CartComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

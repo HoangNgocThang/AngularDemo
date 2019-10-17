@@ -1,6 +1,6 @@
 <div>
   <p>{{ testObject.name }}</p>
-  {{ testVariable }}
+  <p>{{ testVariable }}</p>
   <div *ngIf="product.price > 20000">
     <button
       style="background: brown; color: chartreuse;margin-top: 20px;margin-bottom: 20px;"
@@ -9,5 +9,6 @@
       Giá lớn hơn 20000 VNĐ
     </button>
   </div>
+  <br />
   <button (click)="click()">click</button>
 </div>

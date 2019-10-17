@@ -44,4 +44,8 @@ export class ItemComponent implements OnInit {
   testClick = () => {
     window.alert("alert by parent with data:" + this.dataSend);
   };
+
+  buyProduct = () => {
+    window.alert("buy");
+  };
 }

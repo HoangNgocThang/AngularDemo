@@ -19,6 +19,6 @@ export class ProductAlertsComponent implements OnInit {
   ngOnInit() {}
 
   click = () => {
-    this.testFuction()
+    this.testFuction();
   };
 }

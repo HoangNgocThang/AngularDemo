@@ -28,6 +28,10 @@
     >
       {{ item.name }}
     </a>
+    <br />
+    <button (click)="buyProduct()">
+      Mua ngay
+    </button>
     <app-product-alerts
       [product]="item"
       [testObject]="obj"
@@ -38,7 +42,7 @@
     </app-product-alerts>
     <br />
     <button (click)="share(i, item)">
-      Share
+      Chia sẻ
     </button>
   </div>
 </div>

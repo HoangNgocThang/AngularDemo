@@ -1,5 +1,6 @@
 <h2>Item Detail</h2>
 <div *ngIf="product">
   <h3>{{ product.name }}</h3>
-  <h4>{{ product.price}}</h4>
+  <h4 style="color: brown;">Gía: {{ product.price }} VNĐ</h4>
+  <button (click)="addToCart(product)">Mua</button>
 </div>
