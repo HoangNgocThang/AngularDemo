@@ -1,0 +1,44 @@
+<div class="wrapItem">
+  <img [src]="imageLink" />
+  <br />
+  <b [hidden]="isShow">THANG</b>
+  <button (click)="toggleForgot()">Hidden</button>
+  <br />
+  <br />
+  <br />
+  <div class="groupInput">
+    <input placeholder="Enter number" (keyup)="onKey($event)" />
+    <h3>phone:{{ number }}</h3>
+  </div>
+  <br />
+  <button (click)="onClick()">CLICK2</button>
+  <div *ngFor="let item of listItem; let i = index">
+    <h3>{{ item.id }} - {{ item.name || "none" }} -index {{ i }}</h3>
+    <p style="color: crimson;">Giá: {{ item.price }} VNĐ</p>
+    <img
+      *ngIf="item.image"
+      [src]="item.image"
+      style="width: 100px;height: 155px;object-fit: cover;"
+    />
+    <br />
+    <a
+      [title]="item.name + ' details'"
+      style="color: blue; text-decoration:underline;"
+      [routerLink]="['/products', item.id]"
+    >
+      {{ item.name }}
+    </a>
+    <app-product-alerts
+      [product]="item"
+      [testObject]="obj"
+      [testVariable]="vari"
+      [testFuction]="testClick"
+      (notify)="onNotify()"
+    >
+    </app-product-alerts>
+    <br />
+    <button (click)="share(i, item)">
+      Share
+    </button>
+  </div>
+</div>

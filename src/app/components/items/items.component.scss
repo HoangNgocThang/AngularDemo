@@ -1,0 +1,22 @@
+.wrapItem {
+  border: 1px solid;
+  border-color: brown;
+}
+
+h1 {
+  color: green;
+}
+
+.textTest {
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.groupInput {
+  flex-direction: column;
+  display: flex;
+  width: 200px;
+  height: 30px;
+  justify-content: center;
+}
