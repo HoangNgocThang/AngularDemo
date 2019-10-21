@@ -5,7 +5,6 @@ import { AppComponent } from "./app.component";
 import { ItemComponent } from "./components/items/items.component";
 import { ProductAlertsComponent } from "./components/product-alerts/product-alerts.component";
 import { ItemDetailComponent } from "./components/item-detail/item-detail.component";
-import { CartComponent } from "./components/cart/cart.component";
 import { HeroesComponent } from "./components/heroes/heroes.component";
 import { FormsModule } from "@angular/forms";
 
@@ -15,7 +14,6 @@ import { FormsModule } from "@angular/forms";
     ItemComponent,
     ProductAlertsComponent,
     ItemDetailComponent,
-    CartComponent,
     HeroesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
