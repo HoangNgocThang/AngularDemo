@@ -11,7 +11,6 @@
     <h3>phone:{{ number }}</h3>
   </div>
   <br />
-  <button (click)="onClick()">CLICK2</button>
   <div *ngFor="let item of listItem; let i = index">
     <h3>{{ item.id }} - {{ item.name || "none" }} -index {{ i }}</h3>
     <p style="color: crimson;">Giá: {{ item.price }} VNĐ</p>
@@ -29,7 +28,7 @@
       {{ item.name }}
     </a>
     <br />
-    <button (click)="buyProduct()">
+    <button (click)="buyProduct(i, item)">
       Mua ngay
     </button>
     <app-product-alerts

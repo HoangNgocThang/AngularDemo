@@ -29,10 +29,6 @@ export class ItemComponent implements OnInit {
     this.number = event.target.value;
   };
 
-  onClick = () => {
-    alert("hello");
-  };
-
   share = (index: number, item: any) => {
     alert("Share " + item.name);
   };
@@ -45,7 +41,7 @@ export class ItemComponent implements OnInit {
     window.alert("alert by parent with data:" + this.dataSend);
   };
 
-  buyProduct = () => {
-    window.alert("buy");
+  buyProduct = (index: number, item: any) => {
+    window.alert("Buy " + item.name);
   };
 }
