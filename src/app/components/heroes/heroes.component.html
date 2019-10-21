@@ -9,9 +9,13 @@
     </label>
   </div>
   <h2>My Heroes</h2>
-  <ul class="heroes">
-    <li *ngFor="let hero of heroes">
-      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-    </li>
-  </ul>
+  <div class="heroes">
+    <div
+      *ngFor="let hero of heroes; let i = index"
+      class="item-hero"
+      (click)="onClickItem(hero, i)"
+    >
+      <p class="badge">{{ hero.id }}.{{ hero.name }}</p>
+    </div>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HEROES } from "../../mocks/hero";
 import { Hero } from "../../models/hero";
+import { HeroService } from "../../services/hero.service";
 
 @Component({
   selector: "app-heroes",
@@ -13,9 +14,23 @@ export class HeroesComponent implements OnInit {
     name: "Windstorm"
   };
 
-  heroes = HEROES;
+  // heroes = HEROES;
 
-  constructor() {}
+  heroes: Hero[];
 
-  ngOnInit() {}
+  constructor(private heroService: HeroService) {}
+
+  //get data from service
+  getData = () => {
+    this.heroes = this.heroService.getHeroes();
+  };
+
+  ngOnInit() {
+    this.getData();
+  }
+
+  onClickItem = (hero: Hero, index: number) => {
+    console.log("aaaa", hero.name);
+    alert(hero.name);
+  };
 }
