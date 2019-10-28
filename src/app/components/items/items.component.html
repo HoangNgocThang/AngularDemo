@@ -31,6 +31,9 @@
     <button (click)="buyProduct(i, item)">
       Mua ngay
     </button>
+    <button (click)="share(i, item)">
+      Chia sẻ
+    </button>
     <app-product-alerts
       [product]="item"
       [testObject]="obj"
@@ -40,9 +43,6 @@
     >
     </app-product-alerts>
     <br />
-    <button (click)="share(i, item)">
-      Chia sẻ
-    </button>
   </div>
   <app-heroes></app-heroes>
 </div>
