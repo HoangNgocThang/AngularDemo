@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { HEROES } from "../../mocks/hero";
 import { Hero } from "../../models/hero";
 import { HeroService } from "../../services/hero.service";
+import { async } from "q";
 
 @Component({
   selector: "app-heroes",
@@ -14,23 +14,43 @@ export class HeroesComponent implements OnInit {
     name: "Windstorm"
   };
 
-  // heroes = HEROES;
-
   heroes: Hero[];
 
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: HeroService) {
+    console.log("constructor");
+  }
+
+  delay = (number: number) => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, number);
+    });
+  };
 
   //get data from service
   getData = () => {
-    this.heroes = this.heroService.getHeroes();
+    // this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().subscribe(async heros => {
+      await this.delay(3000);
+      this.heroes = heros;
+    });
   };
 
   ngOnInit() {
+    console.log("ngOnInit");
     this.getData();
   }
 
   onClickItem = (hero: Hero, index: number) => {
-    console.log("aaaa", hero.name);
     alert(hero.name);
   };
+
+  ngOnChanges() {
+    console.log("ngOnChanges");
+  }
+
+  ngOnDestroy() {
+    console.log("ngOnDestroy");
+  }
 }

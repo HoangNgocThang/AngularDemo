@@ -4,11 +4,17 @@
   <div><span>name: </span>{{ hero.name }}</div>
   <div>
     <label
+      >id:
+      <input [ngModel]="hero.id" placeholder="id" />
+    </label>
+  </div>
+  <div>
+    <label
       >name:
       <input [(ngModel)]="hero.name" placeholder="name" />
     </label>
   </div>
-  <h2>My Heroes</h2>
+  <h2>Heroes:</h2>
   <div class="heroes">
     <div
       *ngFor="let hero of heroes; let i = index"
