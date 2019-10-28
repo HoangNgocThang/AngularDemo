@@ -11,6 +11,8 @@
     <h3>phone:{{ number }}</h3>
   </div>
   <br />
+  <app-heroes></app-heroes>
+  <br />
   <div *ngFor="let item of listItem; let i = index">
     <h3>{{ item.id }} - {{ item.name || "none" }} -index {{ i }}</h3>
     <p style="color: crimson;">Giá: {{ item.price }} VNĐ</p>
@@ -44,5 +46,4 @@
     </app-product-alerts>
     <br />
   </div>
-  <app-heroes></app-heroes>
 </div>

@@ -8,6 +8,7 @@ import { ItemDetailComponent } from "./components/item-detail/item-detail.compon
 import { HeroesComponent } from "./components/heroes/heroes.component";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from "@angular/common/http";
     ItemComponent,
     ProductAlertsComponent,
     ItemDetailComponent,
-    HeroesComponent
+    HeroesComponent,
+    MessagesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

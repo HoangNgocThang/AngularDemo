@@ -9,6 +9,14 @@ import { Observable, of } from "rxjs";
 export class HeroService {
   constructor(private heroService: HeroService) {}
 
+  delay = (number: number) => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, number);
+    });
+  };
+
   getHeroes(): Observable<Hero[]> {
     return of(HEROES);
   }

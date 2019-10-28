@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Hero } from "../../models/hero";
 import { HeroService } from "../../services/hero.service";
-import { async } from "q";
 
 @Component({
   selector: "app-heroes",
@@ -10,8 +9,8 @@ import { async } from "q";
 })
 export class HeroesComponent implements OnInit {
   hero: Hero = {
-    id: 1,
-    name: "Windstorm"
+    id: Math.floor(Math.random() * 100) + 1,
+    name: ""
   };
 
   heroes: Hero[];
@@ -20,20 +19,11 @@ export class HeroesComponent implements OnInit {
     console.log("constructor");
   }
 
-  delay = (number: number) => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, number);
-    });
-  };
-
   //get data from service
   getData = () => {
-    // this.heroes = this.heroService.getHeroes();
-    this.heroService.getHeroes().subscribe(async heros => {
-      await this.delay(3000);
-      this.heroes = heros;
+    this.heroService.getHeroes().subscribe(data => {
+      console.log(data, "data from service");
+      this.heroes = data;
     });
   };
 
@@ -44,6 +34,10 @@ export class HeroesComponent implements OnInit {
 
   onClickItem = (hero: Hero, index: number) => {
     alert(hero.name);
+  };
+
+  addHero = (hero: string, id: number) => {
+    this.heroes.push({ id, name: hero });
   };
 
   ngOnChanges() {
