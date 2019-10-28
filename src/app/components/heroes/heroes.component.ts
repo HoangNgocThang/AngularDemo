@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Hero } from "../../models/hero";
 import { HeroService } from "../../services/hero.service";
+import { async } from "q";
 
 @Component({
   selector: "app-heroes",
@@ -19,9 +20,21 @@ export class HeroesComponent implements OnInit {
     console.log("constructor");
   }
 
+  delay = (number: number) => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, number);
+    });
+  };
+
   //get data from service
   getData = () => {
-    this.heroes = this.heroService.getHeroes();
+    // this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().subscribe(async heros => {
+      await this.delay(3000);
+      this.heroes = heros;
+    });
   };
 
   ngOnInit() {

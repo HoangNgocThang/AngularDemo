@@ -4,6 +4,12 @@
   <div><span>name: </span>{{ hero.name }}</div>
   <div>
     <label
+      >id:
+      <input [ngModel]="hero.id" placeholder="id" />
+    </label>
+  </div>
+  <div>
+    <label
       >name:
       <input [(ngModel)]="hero.name" placeholder="name" />
     </label>
