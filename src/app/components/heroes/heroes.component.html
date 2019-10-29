@@ -14,12 +14,14 @@
   <button (click)="addHero(hero.name, hero.id)">Add hero</button>
   <h2>Heroes:</h2>
   <div class="heroes">
-    <div
+    <a
       *ngFor="let hero of heroes; let i = index"
       class="item-hero"
-      (click)="onClickItem(hero, i)"
+      [title]="hero.name + ' details'"
+      style="color: red; text-decoration: none;"
+      [routerLink]="['/heros', hero.id]"
     >
-      <p class="badge">{{ hero.id }}.{{ hero.name }}</p>
-    </div>
+      {{ hero.id }}.{{ hero.name }}
+    </a>
   </div>
 </div>
