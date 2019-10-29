@@ -8,8 +8,10 @@ import { ItemDetailComponent } from "./components/item-detail/item-detail.compon
 import { HeroesComponent } from "./components/heroes/heroes.component";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { MessagesComponent } from './components/messages/messages.component';
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { MessagesComponent } from "./components/messages/messages.component";
+import { HeroDetailComponent } from "./components/hero-detail/hero-detail.component";
+import { AgGridModule } from "ag-grid-angular";
+import { TestGridComponent } from './components/test-grid/test-grid.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,16 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
     ItemDetailComponent,
     HeroesComponent,
     MessagesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    TestGridComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    AgGridModule.withComponents([])
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
