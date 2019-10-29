@@ -2,22 +2,24 @@ import { Injectable } from "@angular/core";
 import { HEROES } from "../mocks/hero";
 import { Hero } from "../models/hero";
 import { Observable, of } from "rxjs";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { catchError, map, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class HeroService {
-  constructor(private heroService: HeroService) {}
+  private heroUrl = "http://localhost:3000/heros";
 
-  delay = (number: number) => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, number);
-    });
-  };
+  constructor(private http: HttpClient) {}
 
   getHeroes(): Observable<Hero[]> {
-    return of(HEROES);
+    // return of(HEROES);
+    return this.http.get<Hero[]>(this.heroUrl).pipe(
+      tap(res => {
+        console.log("data from api", res);
+      }),
+      catchError(error => of([]))
+    );
   }
 }

@@ -1,0 +1,16 @@
+{
+  "heros": [
+    {
+      "id": 0,
+      "name": "thang"
+    },
+    {
+      "id": 1,
+      "name": "hoang"
+    },
+    {
+      "id": 2,
+      "name": "ngoc"
+    }
+  ]
+}
