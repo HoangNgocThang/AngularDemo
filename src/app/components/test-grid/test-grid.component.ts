@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-
+import { HttpClient } from "@angular/common/http";
+import { GirdService } from "../../services/gird.service";
 @Component({
   selector: "app-test-grid",
   templateUrl: "./test-grid.component.html",
@@ -12,13 +13,19 @@ export class TestGridComponent implements OnInit {
     { headerName: "Price", field: "price", sortable: true, filter: true }
   ];
 
-  rowData = [
-    { make: "Toyota", model: "Celica", price: 35000 },
-    { make: "Ford", model: "Mondeo", price: 32000 },
-    { make: "Porsche", model: "Boxter", price: 72000 }
-  ];
+  rowData: any;
 
-  constructor() {}
+  constructor(private http: HttpClient, private girdService: GirdService) {}
 
-  ngOnInit() {}
+  //get data from service
+  getData = () => {
+    this.girdService.getData().subscribe(data => {
+      console.log(data, "data from service");
+      this.rowData = data;
+    });
+  };
+
+  ngOnInit() {
+    this.getData();
+  }
 }
